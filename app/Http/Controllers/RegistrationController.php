@@ -17,6 +17,7 @@ class RegistrationController extends Controller
         $sentineluser= Sentinel::register($request->all());
         $activation= Activation::create($sentineluser);
         $this->sendEmail($sentineluser,$activation->code);
+        
         return redirect('/login');
     }
     
